@@ -13,6 +13,8 @@ public class CalculatorService {
                 return subtract(operand1, operand2);
             case "multiply":
                 return multiply(operand1, operand2);
+            case "divide":
+                return divide(operand1, operand2);
             default:
                 throw new IllegalArgumentException("Unsupported operation: " + operation);
         }
@@ -28,6 +30,13 @@ public class CalculatorService {
 
     private double multiply(double a, double b) {
         return a * b;
+    }
+
+    private double divide(double a, double b) {
+        if (b == 0) {
+            throw new ArithmeticException("Division by zero");
+        }
+        return a / b;
     }
 }
 

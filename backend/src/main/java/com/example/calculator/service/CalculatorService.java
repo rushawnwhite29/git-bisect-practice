@@ -9,6 +9,8 @@ public class CalculatorService {
         switch (operation.toLowerCase()) {
             case "add":
                 return add(operand1, operand2);
+            case "subtract":
+                return subtract(operand1, operand2);
             default:
                 throw new IllegalArgumentException("Unsupported operation: " + operation);
         }
@@ -16,6 +18,10 @@ public class CalculatorService {
 
     private double add(double a, double b) {
         return a + b;
+    }
+
+    private double subtract(double a, double b) {
+        return a - b;
     }
 }
 

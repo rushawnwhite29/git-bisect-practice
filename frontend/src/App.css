@@ -69,5 +69,21 @@
 .btn-equals {
   background: #51cf66;
   color: white;
+  font-weight: bold;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.calculator {
+  width: 350px;
+}
+
+@media (max-width: 400px) {
+  .calculator {
+    width: 100%;
+    margin: 10px;
+  }
 }
 

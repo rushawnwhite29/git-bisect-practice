@@ -34,6 +34,15 @@ function App() {
     setWaitingForOperand(false)
   }
 
+  const handleDecimal = () => {
+    if (waitingForOperand) {
+      setDisplay('0.')
+      setWaitingForOperand(false)
+    } else if (display.indexOf('.') === -1) {
+      setDisplay(display + '.')
+    }
+  }
+
   const handleCalculate = async () => {
     if (operand1 === null || operation === null) {
       return
@@ -89,6 +98,7 @@ function App() {
           <button className="btn btn-equals" onClick={handleClear}>=</button>
           
           <button className="btn btn-number btn-zero" onClick={() => handleNumberClick(0)}>0</button>
+          <button className="btn btn-number" onClick={handleDecimal}>.</button>
         </div>
       </div>
     </div>

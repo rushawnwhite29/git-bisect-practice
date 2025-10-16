@@ -11,6 +11,8 @@ public class CalculatorService {
                 return add(operand1, operand2);
             case "subtract":
                 return subtract(operand1, operand2);
+            case "multiply":
+                return multiply(operand1, operand2);
             default:
                 throw new IllegalArgumentException("Unsupported operation: " + operation);
         }
@@ -22,6 +24,10 @@ public class CalculatorService {
 
     private double subtract(double a, double b) {
         return a - b;
+    }
+
+    private double multiply(double a, double b) {
+        return a * b;
     }
 }
 

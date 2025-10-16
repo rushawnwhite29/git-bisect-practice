@@ -80,6 +80,8 @@ function App() {
           <button className="btn btn-number" onClick={() => handleNumberClick(6)}>6</button>
           <button className="btn btn-operation" onClick={() => handleOperationClick('subtract')}>-</button>
           
+          <button className="btn btn-operation" onClick={() => handleOperationClick('multiply')}>×</button>
+          
           <button className="btn btn-number" onClick={() => handleNumberClick(1)}>1</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(2)}>2</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(3)}>3</button>

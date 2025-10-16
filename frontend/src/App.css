@@ -27,3 +27,42 @@
   justify-content: flex-end;
 }
 
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  padding: 20px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-number {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.btn-operation {
+  background: #667eea;
+  color: white;
+}
+
+.btn-clear {
+  background: #ff6b6b;
+  color: white;
+  grid-column: span 1;
+}
+
+.btn-zero {
+  grid-column: span 4;
+}
+

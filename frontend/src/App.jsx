@@ -86,7 +86,7 @@ function App() {
           <button className="btn btn-number" onClick={() => handleNumberClick(1)}>1</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(2)}>2</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(3)}>3</button>
-          <button className="btn btn-equals" onClick={handleCalculate}>=</button>
+          <button className="btn btn-equals" onClick={handleClear}>=</button>
           
           <button className="btn btn-number btn-zero" onClick={() => handleNumberClick(0)}>0</button>
         </div>

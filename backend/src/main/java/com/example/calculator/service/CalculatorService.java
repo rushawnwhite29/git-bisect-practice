@@ -2,9 +2,22 @@ package com.example.calculator.service;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * Service class that handles calculator operations
+ */
 @Service
 public class CalculatorService {
 
+    /**
+     * Performs a calculation based on the provided operation
+     * 
+     * @param operand1 First operand
+     * @param operand2 Second operand
+     * @param operation The operation to perform (add, subtract, multiply, divide)
+     * @return The result of the calculation
+     * @throws IllegalArgumentException if the operation is not supported
+     * @throws ArithmeticException if division by zero is attempted
+     */
     public double calculate(double operand1, double operand2, String operation) {
         switch (operation.toLowerCase()) {
             case "add":

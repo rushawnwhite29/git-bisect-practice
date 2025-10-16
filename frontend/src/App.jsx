@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 
+/**
+ * Main Calculator component
+ * Provides a simple calculator with basic arithmetic operations
+ */
 function App() {
+  // State for the display value
   const [display, setDisplay] = useState('0')
+  // State for the first operand in the calculation
   const [operand1, setOperand1] = useState(null)
+  // State for the current operation
   const [operation, setOperation] = useState(null)
+  // State to track if we're waiting for the second operand
   const [waitingForOperand, setWaitingForOperand] = useState(false)
 
   useEffect(() => {
@@ -36,6 +44,10 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [display, operand1, operation, waitingForOperand])
 
+  /**
+   * Handles number button clicks
+   * @param {number} num - The number that was clicked
+   */
   const handleNumberClick = (num) => {
     if (waitingForOperand) {
       setDisplay(String(num))
@@ -45,6 +57,10 @@ function App() {
     }
   }
 
+  /**
+   * Handles operation button clicks (+, -, ×, ÷)
+   * @param {string} op - The operation to perform
+   */
   const handleOperationClick = (op) => {
     const inputValue = parseFloat(display)
     

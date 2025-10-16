@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
@@ -6,6 +6,35 @@ function App() {
   const [operand1, setOperand1] = useState(null)
   const [operation, setOperation] = useState(null)
   const [waitingForOperand, setWaitingForOperand] = useState(false)
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      const key = event.key
+      
+      if (key >= '0' && key <= '9') {
+        handleNumberClick(parseInt(key))
+      } else if (key === '.') {
+        handleDecimal()
+      } else if (key === '+') {
+        handleOperationClick('add')
+      } else if (key === '-') {
+        handleOperationClick('subtract')
+      } else if (key === '*') {
+        handleOperationClick('multiply')
+      } else if (key === '/') {
+        event.preventDefault()
+        handleOperationClick('divide')
+      } else if (key === 'Enter' || key === '=') {
+        event.preventDefault()
+        handleCalculate()
+      } else if (key === 'Escape' || key === 'c' || key === 'C') {
+        handleClear()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [display, operand1, operation, waitingForOperand])
 
   const handleNumberClick = (num) => {
     if (waitingForOperand) {

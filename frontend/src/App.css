@@ -62,14 +62,14 @@
   grid-column: span 1;
 }
 
-.btn-zero {
-  grid-column: span 3;
-}
-
 .btn-equals {
   background: #51cf66;
   color: white;
   font-weight: bold;
+}
+
+.btn-equals-full {
+  grid-column: span 4;
 }
 
 .btn:active {

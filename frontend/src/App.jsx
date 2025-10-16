@@ -137,27 +137,27 @@ function App() {
       <div className="calculator">
         <div className="display">{display}</div>
         <div className="keypad">
-          <button className="btn btn-clear" onClick={handleClear}>C</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(7)}>7</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(8)}>8</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(9)}>9</button>
-          <button className="btn btn-operation" onClick={() => handleOperationClick('add')}>+</button>
+          <button className="btn btn-operation" onClick={() => handleOperationClick('divide')}>÷</button>
           
           <button className="btn btn-number" onClick={() => handleNumberClick(4)}>4</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(5)}>5</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(6)}>6</button>
-          <button className="btn btn-operation" onClick={() => handleOperationClick('subtract')}>-</button>
-          
           <button className="btn btn-operation" onClick={() => handleOperationClick('multiply')}>×</button>
-          <button className="btn btn-operation" onClick={() => handleOperationClick('divide')}>÷</button>
           
           <button className="btn btn-number" onClick={() => handleNumberClick(1)}>1</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(2)}>2</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(3)}>3</button>
-          <button className="btn btn-equals" onClick={handleClear}>=</button>
+          <button className="btn btn-operation" onClick={() => handleOperationClick('subtract')}>-</button>
           
-          <button className="btn btn-number btn-zero" onClick={() => handleNumberClick(0)}>0</button>
+          <button className="btn btn-number" onClick={() => handleNumberClick(0)}>0</button>
           <button className="btn btn-number" onClick={handleDecimal}>.</button>
+          <button className="btn btn-clear" onClick={handleClear}>C</button>
+          <button className="btn btn-operation" onClick={() => handleOperationClick('add')}>+</button>
+          
+          <button className="btn btn-equals btn-equals-full" onClick={handleClear}>=</button>
         </div>
       </div>
     </div>

@@ -92,13 +92,27 @@ function App() {
         })
       })
 
+      if (!response.ok) {
+        throw new Error('Calculation failed')
+      }
+
       const result = await response.json()
-      setDisplay(String(result))
+      
+      if (isNaN(result) || !isFinite(result)) {
+        setDisplay('Error')
+      } else {
+        setDisplay(String(result))
+      }
+      
       setOperand1(null)
       setOperation(null)
       setWaitingForOperand(false)
     } catch (error) {
+      console.error('Calculation error:', error)
       setDisplay('Error')
+      setOperand1(null)
+      setOperation(null)
+      setWaitingForOperand(false)
     }
   }
 

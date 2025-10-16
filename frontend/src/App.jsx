@@ -34,6 +34,36 @@ function App() {
     setWaitingForOperand(false)
   }
 
+  const handleCalculate = async () => {
+    if (operand1 === null || operation === null) {
+      return
+    }
+
+    const operand2 = parseFloat(display)
+    
+    try {
+      const response = await fetch('http://localhost:8080/api/calculator/calculate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          operand1: operand1,
+          operand2: operand2,
+          operation: operation
+        })
+      })
+
+      const result = await response.json()
+      setDisplay(String(result))
+      setOperand1(null)
+      setOperation(null)
+      setWaitingForOperand(false)
+    } catch (error) {
+      setDisplay('Error')
+    }
+  }
+
   return (
     <div className="app">
       <div className="calculator">
@@ -53,6 +83,7 @@ function App() {
           <button className="btn btn-number" onClick={() => handleNumberClick(1)}>1</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(2)}>2</button>
           <button className="btn btn-number" onClick={() => handleNumberClick(3)}>3</button>
+          <button className="btn btn-equals" onClick={handleCalculate}>=</button>
           
           <button className="btn btn-number btn-zero" onClick={() => handleNumberClick(0)}>0</button>
         </div>
